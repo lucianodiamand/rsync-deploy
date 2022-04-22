@@ -1,0 +1,41 @@
+name: 'Acción para los despliegues con Rsync'
+description: 'Acción de GitHub para el despliegue de código utilizando rsync a través de ssh'
+author: 'ldiamand'
+inputs:
+  switches:
+    description: 'The switches'
+    required: true
+  rsh:
+    description: 'Argumentos del shell remoto'
+    required: false
+    default: ''
+  path:
+    description: 'El directorio local'
+    required: false
+    default: ''
+  remote_path:
+    description: 'El directorio remoto'
+    required: true
+  remote_host:
+    description: 'El host remoto'
+    required: true
+  remote_port:
+    description: 'El puerto remoto'
+    required: false
+    default: 22
+  remote_user:
+    description: 'El usuario remoto'
+    required: true
+  remote_key:
+    description: 'La llave remota'
+    required: true
+  remote_key_pass:
+    description: 'Clave de la llave remota'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'send'  
+  color: 'gray-dark'

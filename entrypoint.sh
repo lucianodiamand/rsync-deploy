@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Inicia el agente SSH y carga la key.
 source agent-start "$GITHUB_ACTION"

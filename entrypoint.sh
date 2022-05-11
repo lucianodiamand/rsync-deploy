@@ -9,11 +9,12 @@ set -eu
 
 # Variables.
 SWITCHES="$INPUT_SWITCHES"
+OWNER="${INPUT_OWNER:-apache}"
 RSH="ssh -o StrictHostKeyChecking=no -p $INPUT_REMOTE_PORT $INPUT_RSH"
 LOCAL_PATH="$GITHUB_WORKSPACE/$INPUT_PATH"
 DSN="$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST"
 
 # Despliegue.
 sh -c "rsync $SWITCHES -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
-$RSH -tt $DSN "chown -R www-data:www-data $INPUT_REMOTE_PATH"
+$RSH -tt $DSN "chown -R $OWNER:$OWNER $INPUT_REMOTE_PATH"
 $RSH -tt $DSN "chmod 775 -R $INPUT_REMOTE_PATH"

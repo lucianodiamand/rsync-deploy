@@ -9,6 +9,10 @@ inputs:
     description: 'Argumentos del shell remoto'
     required: false
     default: ''
+  owner:
+    description: 'Usuario dueño y grupo del remoto'
+    required: false
+    default: 'apache'
   path:
     description: 'El directorio local'
     required: false

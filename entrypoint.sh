@@ -15,3 +15,5 @@ DSN="$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST"
 
 # Despliegue.
 sh -c "rsync $SWITCHES -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
+ssh -i /root/.ssh/id_rsa -tt $DSN "chown -R www-data:www-data $INPUT_REMOTE_PATH"
+ssh -i /root/.ssh/id_rsa -tt $DSN "chmod 775 -R $INPUT_REMOTE_PATH"

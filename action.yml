@@ -13,6 +13,10 @@ inputs:
     description: 'Usuario dueño y grupo del remoto'
     required: false
     default: 'apache'
+  permissions:
+    description: 'Nivel de acceso del directorio remoto'
+    required: false
+    default: 755
   path:
     description: 'El directorio local'
     required: false
